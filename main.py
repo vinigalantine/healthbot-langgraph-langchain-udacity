@@ -27,21 +27,28 @@ model = ChatOpenAI(model="gpt-4o-mini", temperature=0.0, streaming=True)
 workflow = StateGraph(State)
 
 
+def entry_point(state: State, config: RunnableConfig):
+    history = state["messages"]
+    messages = []
+
+    if not history:
+        pass
+
+
 def agent(state: State):
+
     return state
+
 
 def router(state: State):
     return "agent"
+
 
 workflow.add_node(agent)
 workflow.add_node("tools", ToolNode([web_search]))
 
 workflow.add_edge(START, "agent")
-workflow.add_conditional_edges(
-    source="agent",
-    path=router,
-    path_map=["tools", END]
-)
+workflow.add_conditional_edges(source="agent", path=router, path_map=["tools", END])
 workflow.add_edge("tools", END)
 
 
