@@ -94,7 +94,7 @@ def agent_research(state: State):
             state["messages"][0],
             SystemMessage(
                 f"Summarize these results for a patient with {state['patient_knowledge_level']} "
-                "knowledge, in at most 5 paragraphs, citing source URLs:\n"
+                "knowledge, in at most 4 paragraphs, citing source URLs:\n"
                 f"Results:\n {results}"
             ),
         ]

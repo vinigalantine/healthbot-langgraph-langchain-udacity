@@ -63,4 +63,11 @@ An OpenAI API key is needed to run this project.
 
 ### Dependencies
 
-**WILL CONFIRM AT THE END**
+Python version: 3.12.4 
+
+| Package | Version |
+|---|---|
+| langchain-core | 1.8.4 |
+| langchain-openai | 1.8.5 |
+| langgraph | 1.2.24 |
+| tavily-python | 0.8.5 |
